@@ -35,7 +35,15 @@ public class MenuManager : MonoBehaviour
 
     public void ShowSettings()
     {
-        main_panel.SetActive(false);
-        settings_panel.SetActive(true);
+        if (main_panel != null) main_panel.SetActive(false);
+        if (settings_panel != null) settings_panel.SetActive(true);
+
+        SettingsManager sm = settings_panel.GetComponentInChildren<SettingsManager>();
+        if (sm != null) sm.OpenSettings();
+    }
+    public void CloseSettings()
+    {
+        if (main_panel != null) main_panel.SetActive(true);
+        if (settings_panel != null) settings_panel.SetActive(false);
     }
 }
