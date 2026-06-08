@@ -1,10 +1,15 @@
 fileFormatVersion: 2
-guid: 1e8f56c60e8498449a9dcdff8b405eb3
+guid: 0b44755b27a987a4c951c08e11c427f1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -511133062249068954
-    second: heart_empty_0
+      213: 445673500309047851
+    second: "\u043A\u043E\u0440\u043E\u0431\u043A\u0430 \u0438 \u043B\u0435\u0441\u0442\u043D\u0438\u0446\u0430
+      _0"
+  - first:
+      213: 4437606438609945364
+    second: "\u043A\u043E\u0440\u043E\u0431\u043A\u0430 \u0438 \u043B\u0435\u0441\u0442\u043D\u0438\u0446\u0430
+      _1"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +42,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +77,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -113,13 +118,14 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heart_empty_0
+      name: "\u043A\u043E\u0440\u043E\u0431\u043A\u0430 \u0438 \u043B\u0435\u0441\u0442\u043D\u0438\u0446\u0430
+        _0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 32
-        height: 30
+        x: 8
+        y: 89
+        width: 29
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,31 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 666cfaf103718e8f0800000000000000
-      internalID: -511133062249068954
+      spriteID: b2ac9bfefa95f2600800000000000000
+      internalID: 445673500309047851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u043A\u043E\u0440\u043E\u0431\u043A\u0430 \u0438 \u043B\u0435\u0441\u0442\u043D\u0438\u0446\u0430
+        _1"
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 2
+        width: 23
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41305526b8b859d30800000000000000
+      internalID: 4437606438609945364
       vertices: []
       indices: 
       edges: []
@@ -148,7 +177,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      heart_empty_0: -511133062249068954
+      "\u043A\u043E\u0440\u043E\u0431\u043A\u0430 \u0438 \u043B\u0435\u0441\u0442\u043D\u0438\u0446\u0430 _0": 445673500309047851
+      "\u043A\u043E\u0440\u043E\u0431\u043A\u0430 \u0438 \u043B\u0435\u0441\u0442\u043D\u0438\u0446\u0430 _1": 4437606438609945364
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

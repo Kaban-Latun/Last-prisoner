@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TeleportTrigger : MonoBehaviour
 {
@@ -17,6 +18,14 @@ public class TeleportTrigger : MonoBehaviour
     public Image fadeImage;
     public float fadeSpeed = 1.5f;
 
+    [Header("Загрузка уровня (опционально)")]
+    [Tooltip("Если включено, будет загружен уровень вместо телепортации в рамках текущей сцены")]
+    public bool loadNewLevel = false;
+    [Tooltip("Имя сцены для загрузки (требуется, если loadNewLevel = true)")]
+    public string levelToLoad = "";
+    [Tooltip("Режим загрузки сцены")]
+    public LoadSceneMode loadMode = LoadSceneMode.Single;
+
     private bool isTeleporting = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,6 +40,7 @@ public class TeleportTrigger : MonoBehaviour
     {
         isTeleporting = true;
 
+        // Анимация затухания
         float alpha = 0f;
         while (alpha < 1f)
         {
@@ -40,33 +50,48 @@ public class TeleportTrigger : MonoBehaviour
         }
         SetImageAlpha(1f);
 
-        playerTransform.position = teleportTarget.position;
-
-        if (nextRoomCamera != null)
-        {
-            nextRoomCamera.SetActive(true);
-        }
-
-        if (currentRoomCamera != null)
-        {
-            Destroy(currentRoomCamera);
-        }
-
-        yield return new WaitForEndOfFrame();
-
-        Telekinesis telekinesis = playerTransform.GetComponent<Telekinesis>();
-        if (telekinesis == null && Camera.main != null)
-        {
-            telekinesis = Camera.main.GetComponent<Telekinesis>();
-        }
-
-        if (telekinesis != null)
-        {
-            telekinesis.RefreshCamera();
-        }
-
+        // Пауза для плавности перехода
         yield return new WaitForSeconds(0.1f);
 
+        if (loadNewLevel && !string.IsNullOrEmpty(levelToLoad))
+        {
+            // Загрузка нового уровня
+            SceneManager.LoadScene(levelToLoad, loadMode);
+            // После загрузки сцены корутина остановится автоматически
+            yield break;
+        }
+        else if (teleportTarget != null)
+        {
+            // Обычная телепортация в рамках текущей сцены
+            playerTransform.position = teleportTarget.position;
+
+            if (nextRoomCamera != null)
+            {
+                nextRoomCamera.SetActive(true);
+            }
+
+            if (currentRoomCamera != null)
+            {
+                Destroy(currentRoomCamera);
+            }
+
+            yield return new WaitForEndOfFrame();
+
+            Telekinesis telekinesis = playerTransform.GetComponent < Telekinesis > ();
+            if (telekinesis == null && Camera.main != null)
+            {
+                telekinesis = Camera.main.GetComponent<Telekinesis>();
+            }
+
+            if (telekinesis != null)
+            {
+                telekinesis.RefreshCamera();
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        // Анимация появления
         while (alpha > 0f)
         {
             alpha -= Time.deltaTime * fadeSpeed;
