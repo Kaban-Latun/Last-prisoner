@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8021006123409325920}
   - component: {fileID: 8686183169368889392}
   - component: {fileID: 6141992224724281370}
+  - component: {fileID: 3129332803490912310}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Rat
@@ -84,11 +85,11 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 11
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: e193217cdb6d2fa449ab525be26bf41a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -108,9 +109,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -121,8 +122,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 6
 --- !u!58 &1752739906664010847
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -185,8 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteResolver
-  m_CategoryHash: 0
-  m_labelHash: 0
+  m_CategoryHash: 5.449709e-22
+  m_labelHash: 5.449709e-22
   m_SpriteKey: 0
   m_SpriteHash: 291768187
 --- !u!95 &6141992224724281370
@@ -211,3 +212,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3129332803490912310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593570875483420129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2988a4020b027154c8a1c7a242a0933a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RatAI
+  moveSpeed: 4
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 72
+  maxSearchDistance: 100
+  wallOffset: 0.5
+  visionBoxSize: {x: 0.38, y: 0.93}
+  visionBoxOffset: 0.35
