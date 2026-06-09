@@ -25,6 +25,9 @@ public class PlayerHealth : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    public AudioSource audiosource;
+    public AudioClip hit;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -37,6 +40,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isInvulnerable) return;
 
+        audiosource.clip = hit;
+        audiosource.Play();
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthUI();
