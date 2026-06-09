@@ -26,9 +26,14 @@ public class RatAI : MonoBehaviour
     private Rigidbody2D rb;
     private bool facingRight = true;
 
+    public AudioSource audioSource;
+    public float delayTime = 3.0f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        audioSource.PlayScheduled(AudioSettings.dspTime + delayTime);
 
         CalculatePatrolPoints();
     }
